@@ -1,0 +1,44 @@
+openapi: 3.0.3
+info:
+  title: Spaceport API
+  description: API for managing a spaceport
+  contact:
+    name: Stefan Winter
+  version: 0.0.1
+
+tags:
+  - name: ship
+    description: Handling of ships
+
+paths:
+  /ship/{id}:
+    get:
+      tags:
+        - ship
+      description: Get a ship currently in port
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+
+      responses:
+        200:
+          description: The ship with this id
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/Ship'
+
+components:
+  schemas:
+    Ship:
+      description: A spaceship
+      type: object
+      properties:
+        id:
+          type: integer
+          description: id of the ship
+      required:
+        - id
