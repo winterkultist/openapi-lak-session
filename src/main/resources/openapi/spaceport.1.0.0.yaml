@@ -4,7 +4,7 @@ info:
   description: API for managing a spaceport
   contact:
     name: Stefan Winter
-  version: 0.0.1
+  version: 1.0.0
 
 tags:
   - name: ship
