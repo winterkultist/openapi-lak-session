@@ -24,4 +24,17 @@ public class ShipControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("Hello, World")));
     }
+
+    @Test
+    void getShipShouldReturnAShip() throws Exception {
+        this.mockMvc.perform(get("/ship/123"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("123")));
+    }
+
+    @Test
+    void getShipWithInvalidIdShouldThrow400() throws Exception {
+        this.mockMvc.perform(get("/ship/abc"))
+                .andExpect(status().is4xxClientError());
+    }
 }

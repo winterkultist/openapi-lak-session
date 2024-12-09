@@ -23,6 +23,7 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-validation")
+    implementation ("io.swagger.core.v3:swagger-annotations:2.2.6")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
@@ -42,9 +43,9 @@ val openApiGenerateParams =
 tasks.register<GenerateTask>("openApiGenerateSpaceport") {
     generatorName.set("spring")
     inputSpec.set("$projectDir/src/main/resources/openapi/spaceport.0.0.1.yaml")
-    outputDir.set("$projectDir/build/generated/openapi")
+    outputDir.set("$projectDir/build/generated/")
     packageName.set("at.twinformatics.openapilaksession")
-    apiPackage.set("at.twinformatics.openapilaksession.web.api")
+    apiPackage.set("at.twinformatics.openapilaksession.web")
     modelPackage.set("at.twinformatics.openapilaksession.web.model")
     removeOperationIdPrefix.set(true)
     configOptions.set(openApiGenerateParams.toMap()) // clone it as to not touch default setup
