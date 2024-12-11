@@ -42,7 +42,7 @@ val openApiGenerateParams =
 
 tasks.register<GenerateTask>("openApiGenerateSpaceport") {
     generatorName.set("spring")
-    inputSpec.set("$projectDir/src/main/resources/openapi/spaceport.0.0.1.yaml")
+    inputSpec.set("$projectDir/src/main/resources/openapi/spaceport.1.0.0.yaml")
     outputDir.set("$projectDir/build/generated/")
     packageName.set("at.twinformatics.openapilaksession")
     apiPackage.set("at.twinformatics.openapilaksession.web")
